@@ -4,18 +4,21 @@
 <h1>Dove List</h1>
 
 {% for dove in doves %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ dove.name }}</span>
-      <p>Breed: {{ dove.breed }}</p>
-      <p>Description: {{ dove.description }}</p>
-      {% if dove.age > 0 %}
-        <p>Age: {{ dove.age }}</p>
-      {% else %}
-        <p>Age: Squab</p>
-      {% endif %}
-    </div>
+<div class="card">
+  <!-- adding sprecific doves page link -->
+  <a href="{% url 'detail' dove.id %}">
+  <div class="card-content">
+    <span class="card-title">{{ dove.name }}</span>
+    <p>Breed: {{ dove.breed }}</p>
+    <p>Description: {{ dove.description }}</p>
+    {% if dove.age > 0 %}
+      <p>Age: {{ dove.age }}</p>
+    {% else %}
+      <p>Age: Squab</p>
+    {% endif %}
   </div>
+  </a>
+</div>
 {% endfor %}
 
-{% endblock %}
+{% endblock %} 
